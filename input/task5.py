@@ -1,3 +1,1 @@
-a, b, c, d, g = map(int, input().split())
-e = max(a, b, c, d, g)
-print(e)
+print((n := [*map(int, input().split())])[0]*3 + n[1]*5 + n[2]*12)
