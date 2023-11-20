@@ -1,3 +1,3 @@
-a, b, c, d, g = map(int, input().split())
-e = max(a, b, c, d, g)
-print(e)
+n, a, b = map(int, input().split())
+s = n * ((a * b) * 2)
+print(s)
