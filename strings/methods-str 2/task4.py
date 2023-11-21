@@ -1,0 +1,10 @@
+s = 'Мила Кунис'
+print(s.startswith('Мила'))
+print(s.startswith('М'))
+print(s.startswith('Бред'))
+print('-----')
+print(s.startswith('Мила', 1))
+print(s.startswith('ила', 1))
+print('-----')
+print(s.startswith('ил', 1, 2))
+print(s.startswith('ил', 1, 3))

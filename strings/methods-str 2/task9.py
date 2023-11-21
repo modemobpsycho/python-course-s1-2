@@ -1,0 +1,6 @@
+print('ABCDEF', 'ABCDEF'.isupper())
+print('ABCdEF', 'ABCdEF'.isupper())
+print('QWERTY!', 'QWERTY!'.isupper())
+print('12345', '12345'.isupper())
+print('12345ZXC', '12345ZXC'.isupper())
+print('12345ZxC', '12345ZxC'.isupper())

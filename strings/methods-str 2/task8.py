@@ -1,0 +1,7 @@
+print(''.islower())
+print('abcdefg', 'abcdefg'.islower())
+print('abcDefG', 'abcDefG'.islower())
+print('qwerty!', 'qwerty!'.islower())
+print('12345', '12345'.islower())
+print('12345abc', '12345abc'.islower())
+print('12345aBc', '12345aBc'.islower())
