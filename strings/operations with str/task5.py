@@ -1,0 +1,1 @@
+print("{2}\n{1}\n{0}".format(input(), input(),input()))
