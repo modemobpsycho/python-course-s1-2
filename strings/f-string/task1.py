@@ -1,37 +1,28 @@
-import re
+from Bio import SeqIO
 
 
-def clean_mas_file(file_path, output_file_path):
-    species_names = []  # Список для хранения названий видов
-    cleaned_lines = []  # Список для хранения очищенных строк
+def read_fasta_file(file_path):
+    species_names = []
+    sequences = []
 
-    # Открываем файл для чтения
-    with open(file_path, 'r') as file:
-        for line in file:
-            line = line.strip()
-            if line.startswith('>'):
-                # Извлекаем название вида
-                species_name = line[1:]  # Игнорируем символ '>'
-                species_names.append(species_name)
-            else:
-                # Очищаем строку от нежелательных символов
-                cleaned_line = re.sub(r'[^ATCG]', '', line)
-                if cleaned_line:
-                    cleaned_lines.append(cleaned_line)
+    # Читаем файл FASTA
+    for record in SeqIO.parse(file_path, 'fasta'):
+        # Извлекаем название вида из описания
+        species_name = record.description.split("|")[1]
+        sequence = str(record.seq)  # Получаем последовательность нуклеотидов
 
-    # Открываем новый файл для записи очищенных строк
-    with open(output_file_path, 'w') as output_file:
-        # Записываем очищенные строки в новый файл
-        output_file.writelines(cleaned_lines)
+        species_names.append(species_name)
+        sequences.append(sequence)
 
-    return species_names
+    return species_names, sequences
 
 
 # Пример использования
-input_file_path = 'fasta.mas'
-output_file_path = 'example.mas'
-species_names = clean_mas_file(input_file_path, output_file_path)
+file_path = 'fasta.mas'
+species_names, sequences = read_fasta_file(file_path)
 
-# Выводим список названий видов
-for species_name in species_names:
-    print(species_name)
+# Выводим названия видов и соответствующие им последовательности
+for species_name, sequence in zip(species_names, sequences):
+    print(f'Species: {species_name}')
+    print(f'Sequence: {sequence}')
+    print('---')
