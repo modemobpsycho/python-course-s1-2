@@ -1,28 +1,29 @@
 from Bio import SeqIO
 
 
-def read_fasta_file(file_path):
-    species_names = []
-    sequences = []
+def remove_duplicate_sequences(file_path, output_file_path):
+    species_sequences = {}
 
-    # Читаем файл FASTA
     for record in SeqIO.parse(file_path, 'fasta'):
-        # Извлекаем название вида из описания
         species_name = record.description.split("|")[1]
-        sequence = str(record.seq)  # Получаем последовательность нуклеотидов
 
-        species_names.append(species_name)
-        sequences.append(sequence)
+        if species_name in species_sequences:
+            if sequence not in species_sequences[species_name]:
+                species_sequences[species_name].append(sequence)
+        else:
+            species_sequences[species_name] = [sequence]
 
-    return species_names, sequences
+    with open(output_file_path, 'w') as output_file:
+        for species_name, sequences in species_sequences.items():
+            for index, sequence in enumerate(sequences):
+                record_id = f"{species_name}_{index+1}"
+                record_description = f">{record_id}"
+                output_file.write(f"{record_description}\n{sequence}\n")
+
+    print("Удаление дубликатов завершено.")
 
 
 # Пример использования
-file_path = 'fasta.mas'
-species_names, sequences = read_fasta_file(file_path)
-
-# Выводим названия видов и соответствующие им последовательности
-for species_name, sequence in zip(species_names, sequences):
-    print(f'Species: {species_name}')
-    print(f'Sequence: {sequence}')
-    print('---')
+input_file_path = ''
+output_file_path = ''
+remove_duplicate_sequences(input_file_path, output_file_path)
