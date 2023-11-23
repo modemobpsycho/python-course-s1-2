@@ -1,0 +1,5 @@
+a1 = int(input())
+a2 = int(input())
+print(f"{a1} / {a2} = {a1 / a2}")
+print(f"{a1} // {a2} = {a1 // a2}")
+print(f"{a1} % {a2} = {a1 % a2}")
