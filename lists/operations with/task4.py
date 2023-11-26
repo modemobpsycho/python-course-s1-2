@@ -4,5 +4,6 @@ print(sorted(b, reverse=True))
 # сам список b не изменился
 print(b)
 # теперь изменим b
+
 b = sorted(b)
 print(b)
