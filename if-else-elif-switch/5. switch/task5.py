@@ -10,3 +10,5 @@ match zodiac.lower():
         print("Воздушный")
     case "рак" | "скорпион" | "рыбы":
         print("Водный")
+
+

@@ -14,3 +14,5 @@ match course:
         print("Босс качалки")
     case _:
         print("Неизвестный курс")
+
+
