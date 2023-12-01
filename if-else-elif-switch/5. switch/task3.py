@@ -9,3 +9,5 @@ match digit:
         print("При делении на 3 дают остаток 2")
     case  _:
         print(f"{digit} не является цифрой")
+
+

@@ -8,3 +8,4 @@ elif len(parol_1) < 7:
 # иначе проверяем равен первый пароль второму или нет
 elif parol_1 != parol_2:
     print('Difference')
+
