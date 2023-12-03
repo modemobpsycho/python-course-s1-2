@@ -1,0 +1,5 @@
+objs = iter([23, 78, True, 'hello'])
+print(next(objs))
+print(next(objs))
+print(next(objs))
+print(next(objs))
