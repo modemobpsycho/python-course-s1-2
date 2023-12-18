@@ -16,12 +16,10 @@ def can_form_word(word, letters):
     return "Yes"
 
 
-# Ввод числа наборов букв
 num_sets = int(input())
 
 for _ in range(num_sets):
     word = "TINKOFF"
-    # Ввод набора букв
     letters = input()
     result = can_form_word(word, letters)
     print(result)

@@ -71,3 +71,4 @@ for _ in range(q):
         print(result)
     else:
         segment_tree.update(1, 0, n - 1, l - 1, r - 1, x)
+
