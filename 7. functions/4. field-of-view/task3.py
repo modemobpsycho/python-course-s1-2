@@ -1,6 +1,5 @@
 MIN_DRIVING_AGE = 18
-allowed_driving('tim', 17)
-allowed_driving('bob', 18)
+
 MIN_DRIVING_AGE = 18
 
 
